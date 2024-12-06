@@ -1,0 +1,5 @@
+{
+  "editor.tabSize": 2,      // 设置为 2 个空格
+  "editor.insertSpaces": true,  // 使用空格而非 Tab
+  "editor.detectIndentation": false  // 禁用自动检测缩进，强制使用你设定的值
+}

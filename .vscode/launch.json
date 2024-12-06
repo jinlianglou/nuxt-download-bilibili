@@ -1,0 +1,48 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // Nuxt 客户端调试配置
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Nuxt 客户端",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*",
+        "webpack:///*": "${webRoot}/*"
+      }
+    },
+    // Nuxt 3 服务端调试配置
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Nuxt 服务端",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["nuxt", "dev"],
+      "outputCapture": "std",
+      "console": "integratedTerminal"
+    },
+    // 完整的 Nuxt 调试
+    {
+      "name": "Nuxt 全栈调试",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["nuxt", "dev"],
+      "outputCapture": "std",
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "pattern": "Listening on: http://localhost:([0-9]+)",
+        "uriFormat": "http://localhost:%s",
+        "action": "debugWithChrome"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Nuxt: 客户端 + 服务端",
+      "configurations": ["Nuxt 服务端", "Nuxt 客户端"]
+    }
+  ]
+}

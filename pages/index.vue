@@ -35,7 +35,7 @@
           </NSpace>
         </NSpace>
         <NSpace vertical>
-          <NAffix :top="8" >
+          <NAffix :top="8" class="affix">
             <NInputGroup v-if="selectedDir">
               <NInputGroupLabel>下载地址</NInputGroupLabel>
               <NInput v-model:value="url" :style="{ width: '300px' }" />
@@ -262,5 +262,8 @@ const handleCreateDir = async (newDirName: string, rootDir: string  ) => {
 .dir-card--active {
   border: 1px solid #18a058;
   background-color: rgba(24, 160, 88, 0.1);
+}
+.affix{
+  z-index: 10;
 }
 </style>
